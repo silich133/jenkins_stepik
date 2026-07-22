@@ -32,5 +32,14 @@ pipeline {
                 sh 'date'
             }
         }
+        stage('Specific Agent') {
+            agent {
+                label 'linux'  
+            }
+            steps {
+                echo "Running on agent with label 'linux'"
+                sh 'uname -a'
+            }
+        }
     }
 }
