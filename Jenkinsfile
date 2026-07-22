@@ -38,5 +38,14 @@ pipeline {
                 echo '=== End Of System Information ==='
             }
         }
+
+        stage('Cleanup') {
+            steps {
+                echo 'Cleaning up temporary files...'
+                sh 'rm -rf temp logs'
+                sh 'ls -la'
+                echo 'Cleanup completed'
+            }
+        }
     }
 }
